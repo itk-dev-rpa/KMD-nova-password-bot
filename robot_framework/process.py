@@ -47,6 +47,13 @@ def create_password() -> str:
 
 
 def change_password(username: str, old_password: str, new_password: str):
+    """Go to KMD Nova and change password from old to new.
+
+    Args:
+        username: Username to change login for.
+        old_password: Most recent password.
+        new_password: New password for login.
+    """
     chrome_options = Options()
     chrome_options.add_argument("--disable-search-engine-choice-screen")
     browser = webdriver.Chrome(options=chrome_options)
@@ -63,7 +70,6 @@ def change_password(username: str, old_password: str, new_password: str):
     browser.find_element(By.ID, "inputNewPassword").send_keys(new_password)
     browser.find_element(By.ID, "inputNewPasswordConfirm").send_keys(new_password)
     browser.find_element(By.ID, "logonBtn").click()
-    return browser
 
 
 if __name__ == '__main__':
