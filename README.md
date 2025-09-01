@@ -5,7 +5,7 @@ The purpose of this robot is to change passwords for KMD Nova accounts.
 
 ## Setup
 
-Process parameters is required, setup as a comma-seperated string:
+Process parameters is required, setup as a comma-separated string:
 "Robot 123", "KMD robot".
 
 ## Requirements
