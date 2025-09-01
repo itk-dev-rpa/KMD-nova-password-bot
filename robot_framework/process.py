@@ -2,6 +2,7 @@
 
 import string
 import random
+import os
 
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
 from selenium import webdriver
@@ -52,7 +53,7 @@ def change_password(username: str, old_password: str, new_password: str):
     browser = webdriver.Chrome(options=chrome_options)
     browser.maximize_window()
 
-    browser.get("http://kmdnovaesdh.kmd.dk/")
+    browser.get("https://cap-awswlbs-wm3q2021.kmd.dk/KMDNovaESDH/forside")
 
     wait = WebDriverWait(browser, 20)
     wait.until(EC.element_to_be_clickable((By.ID, "inputUsername")))
@@ -72,3 +73,8 @@ if __name__ == '__main__':
     new_password = create_password()
     change_password(username, old_password, new_password)
     print(new_password)
+
+    conn_string = os.getenv("OpenOrchestratorConnString")
+    crypto_key = os.getenv("OpenOrchestratorKey")
+    oc = OrchestratorConnection("Eflyt Test", conn_string, crypto_key, "KMD Ejendomsbeskatning")
+    process(oc)
