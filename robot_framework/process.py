@@ -73,8 +73,8 @@ def change_password(username: str, old_password: str, new_password: str):
 
 
 if __name__ == '__main__':
-    username = ""
-    old_password = ""
-    new_password = create_password()
-    change_password(username, old_password, new_password)
-    print(new_password)
+    USERNAME = ""
+    OLD_PASSWORD = ""
+    NEW_PASSWORD = create_password()
+    change_password(USERNAME, OLD_PASSWORD, NEW_PASSWORD)
+    print(NEW_PASSWORD)
