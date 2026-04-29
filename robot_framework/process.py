@@ -56,7 +56,7 @@ def change_password(username: str, old_password: str, new_password: str):
     """
     chrome_options = Options()
     chrome_options.add_argument("--disable-search-engine-choice-screen")
-    browser = webdriver.Chrome(options=chrome_options)
+    browser = webdriver.Chrome(options=chrome_options)  # pylint: disable=not-callable
     browser.maximize_window()
 
     browser.get("https://cap-awswlbs-wm3q2021.kmd.dk/KMDNovaESDH/")
@@ -70,11 +70,3 @@ def change_password(username: str, old_password: str, new_password: str):
     browser.find_element(By.ID, "inputNewPassword").send_keys(new_password)
     browser.find_element(By.ID, "inputNewPasswordConfirm").send_keys(new_password)
     browser.find_element(By.ID, "logonBtn").click()
-
-
-if __name__ == '__main__':
-    USERNAME = ""
-    OLD_PASSWORD = ""
-    NEW_PASSWORD = create_password()
-    change_password(USERNAME, OLD_PASSWORD, NEW_PASSWORD)
-    print(NEW_PASSWORD)
